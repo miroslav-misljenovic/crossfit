@@ -7,28 +7,31 @@ Opis domena baze podataka za projekat
 1 rekurzivni odnos - Trener -> Obucavanje
 
 
-U bazi se za relaciju Trening cuvaju atributi Id, Datum
-i Opis koji sadrzi spisak i broj ponavljanja vezbi koje se rade na tom treningu.
+U bazi se cuvaju podaci o treningu. Cuvaju se podaci o id-u treninga, datumu odrzavanja treninga,
+kao i o opisu koji sadrzi spisak i broj ponavljanja vezbi koje se rade na tom treningu.
 
-Za Klijenta se cuvaju podaci o imenu i prezimenu, Id-u, kao i broju odradjenih treninga do sada.
+U bazi se takodje cuvaju i podaci o klijentima:
+ime i prezime klijenta, identifikacioni kod klijenta, kao i broj odradjenih treninga do sada.
 Klijent mora prijaviti bar jedan trening, a moze i vise.
 Treningu moze prisusvovati vise klijenata, a ne mora nijedan.
-Podaci o prijavama cuvaju se u tabeli Prijava.
+Podaci o prijavama se takodje cuvaju u bazi.
 
-Relacija Trener sadrzi sledece atribute: Id, Ime, Prezime, Plata i Datum rodjenja.
+Podaci o treneru su sledeci:
+identifikacioni kod trenera, ime, prezime, plata i datum rodjenja.
 Trener moze voditi vise treninga, ali ne mora nijedan.
 S druge strane trening mora voditi barem jedan trener,
 a moze i vise trenera ukoliko je potrebno (zbog strucnosti trenera za pojedinu grupu vezbi).
-Tabela Vodi cuva sadrzi podatke o tome koji treneri vode koje treninge.
+U bazi se cuvaju podaci o tome koji treneri vode koje treninge.
 
 Da bi trener mogao da vodi treninge, potrebno je da prodje adekvatnu obuku od strane drugog trenera.
 Jedan trener mora proci obuku od strane barem jednog trenera, a moze i od vise njih.
 Trener nema obavezu da poducava nekog drugog trenera, premda moze poducavati vise njih.
 
-Crossfit treninzi zahtevaju raznoliku opremu i u tabeli Oprema se cuvaju atributi
-Sifra, Proizvodjac i Naziv odredjene opreme. Takodje, izdvojene su tri tabele koje dodatno opisuju
-odredjenu opremu.
-U tabeli Tegovi cuvaju se se Tezina i Kolicina tegova,
+Crossfit treninzi zahtevaju raznoliku opremu i u bazi se cuvaju sledeci podaci:
+sifra opreme, proizvodjac i naziv odredjene opreme.
+Takodje, izdvojene su tri kategorije (tegovi, medicinke i strunjace)
+koje dodatno opisuju odredjenu opremu.
+Za tegove se cuvaju tezina i kolicina tegova,
 kao i Opis u kome se ukratko opisuje koja je tacno vrsta tega (bucica, kugla(kettlebell), ploca...).
-u tabeli Medicinke cuvaju se podaci o tezini i kolicini medicinke, dok se u tabeli Strunjace
-cuvaju samo podaci o kolicini.
+Za medicinke se cuvaju podaci o tezini i broju medicinki,
+dok se o strunjacama cuvaju samo podaci o kolicini.
