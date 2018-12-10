@@ -1,6 +1,7 @@
 Opis domena baze podataka za projekat
 - Crossfit klub -
 
+Uslovi:
 4 nezavisna atributa - Trening, Klijent, Trener i Oprema
 2 agregirana atributa - Vodi i Prijava
 1 odnos specijalizacija/generalizacija - Oprema -> Tegovi, Strunjace, Medicinke
@@ -35,3 +36,50 @@ Za tegove se cuvaju tezina i kolicina tegova,
 kao i Opis u kome se ukratko opisuje koja je tacno vrsta tega (bucica, kugla(kettlebell), ploca...).
 Za medicinke se cuvaju podaci o tezini i broju medicinki,
 dok se o strunjacama cuvaju samo podaci o kolicini.
+
+
+Spisak relacija:
+Trening, Prijava, Klijent, Vodi, Trener, Obucavanje, Upotreba, Oprema, Tegovi, Strunjace, Medicinke
+
+
+Upiti:
+
+1. Jednostavni upiti:
+   Pregled podataka u tabeli `Klijent`
+   (ovim upitom imamo uvid u kolonu `brPrijavljenihTreninga`).
+   
+   1.1 SELECT * FROM Klijent;
+   
+   Pregled podataka u tabeli `Trener` (`plata`).
+   
+   1.2 SELECT * FROM Trener;
+   
+   Pregled podataka u tabeli `Prijava` (broj prijavljenih klijenata za odredjeni trening).
+   
+   1.3 SELECT * FROM Prijava;
+
+   
+2. Unos podataka u tabelu `Prijava`
+   kako bi se aktivirao okidac koji menja sadrzaj tabele `Klijent`
+
+   INSERT INTO `Prijava` VALUES (2,4);
+   
+   Rezultat izvrsavanja trigera vidimo tako sto ponovimo upit 1.1
+   kako bi se videla promena u koloni `brPrijavljenihTreninga`.
+
+   
+3. Unos podataka u tabelu `Vodi`
+   kojim se aktivira triger za azuriranje plate treneru.
+   Treneru se dodaje 150 dinara za svakog prijavljenog klijenta.
+
+   INSERT INTO `Vodi` VALUES(1,2)
+
+   Rezultat izvrsavanja trigera vidimo tako sto ponovimo prvi 1.2
+   kako bi se videla promena u koloni `Plata`.
+
+
+4. Izracunati ukupnu tezinu svih tegova proizvodjaca 'Nike'.
+
+   SELECT Tegovi.Tezina*Tegovi.Kolicina
+   FROM Oprema join Tegovi on Oprema.sifra = Tegovi.Oprema_sifra
+   WHERE `Proizvodjac`='Nike';
