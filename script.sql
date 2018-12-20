@@ -1,7 +1,9 @@
 /* Napraviti skriptove u kojima se nalaze upiti kojima se kreira baza, kreiraju tabele i
 popunjavaju tabele podacima. */
+ 
+DROP DATABASE IF EXISTS crossfit;
 
-CREATE DATABASE IF NOT EXISTS crossfit;
+CREATE DATABASE crossfit;
 
 USE `crossfit`;
 

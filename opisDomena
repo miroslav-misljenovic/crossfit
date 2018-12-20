@@ -62,7 +62,7 @@ Upiti:
 2. Unos podataka u tabelu `Prijava`
    kako bi se aktivirao okidac koji menja sadrzaj tabele `Klijent`
 
-   INSERT INTO `Prijava` VALUES (2,4);
+   INSERT INTO `Prijava` VALUES (4,2);
    
    Rezultat izvrsavanja trigera vidimo tako sto ponovimo upit 1.1
    kako bi se videla promena u koloni `brPrijavljenihTreninga`.
